@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "************************************"
+echo "     PRE PUSH"
+echo "************************************"
+
+root_dir="."
+
+# Find all package.json files under the root directory
+pkgs=$(find "$root_dir" -name "package.json" -type f)
+
+# Loop through the package.json files and run npm test for each one
+for pkg in $pkgs; do
+  # Extract the directory containing the package.json file
+  dir=$(dirname "$pkg")
+
+  # Change to the directory and run npm test
+  if [ -f "$dir/package.json" ]; then
+    cd "$dir" && npm test
+  fi
+done

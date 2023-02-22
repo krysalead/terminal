@@ -1,0 +1,15 @@
+#!/bin/bash
+
+STORAGE_FOLDER=/tmp/postfix/
+
+mkdir -p $STORAGE_FOLDER
+
+# Generate a filename based on the current date and a random number
+timestamp=$(date '+%Y%m%d%H%M%S')
+random=$(od -A n -t d -N 1 /dev/urandom | awk '{print $1}')
+filename="$timestamp-$random.mail"
+
+echo "Sendmail override, your email is not sent but stored in ${STORAGE_FOLDER}${filename}"
+while read line; do
+  echo "$line" >> "${STORAGE_FOLDER}$filename"
+done

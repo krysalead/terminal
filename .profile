@@ -13,17 +13,57 @@
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+# adding the common bin from the repository
+PATH="$HOME/terminal/bin:$PATH"
+# adding krew and python
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:/usr/bin/python:$PATH"
+# Git short cut
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global --replace-all alias.st "status -sb"
+git config --global user.name Olivier DAUMAS
+git config --global user.email olivier.daumas@acri-st.fr
+git config --global init.templatedir '~/terminal/.git-templates'
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# Manage .aliases in folders
+function aliases(){
+    if [ -f .aliases ]; then
+        echo "Loading aliases...${PWD}"
+        . ${PWD}/.aliases
+    fi
+    return 0
+}
 
-. "$HOME/.envrc"
-. "$HOME/.gitbashrc"
-. "$HOME/.functionsrc"
 
-eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/slim.omp.json)"
+# Allow to source .aliases file with aliases for the current folder
+function cd () { 
+  builtin cd "$@" && aliases
+  return 0
+}
 
-export PATH=$PATH:~/Applications/WebDriver
-export PATH=$PATH:~/Applications
+# cd from anywhere into your project folder, easy switch from one project to another
+CDPATH=.:~/Projects
+
+#System alias
+alias ll='ls -la'
+alias q='exit'
+alias c='clear'
+alias home='cd ~'
+alias root='cd /'
+alias work='cd ~/Projects'
+alias o=open
+alias ..='cd ..'
+alias branches='~/terminal/bin/branches.sh'
+alias master='git checkout master'
+alias development='git checkout development'
+alias production='git checkout production'
+alias previous='git checkout @{-1}'
+alias ns='kubens'
+alias ctx='kubectx'
+alias files='find * -type f | fzf > selected'
+alias mount='f() { mkdir -p ~/mnt/$1;/usr/bin/vmhgfs-fuse .host:/$1 ~/mnt/$1 -o subtype=vmhgfs-fuse;cd ~/mnt/$1 };f'
+alias squash-all='git reset $(git commit-tree HEAD^{tree} -m "Clean Start")'
+alias aliases='alias;cat .aliases'
+
+export CI_REGISTRY=gitlabreg.acri-cwa.fr:443
