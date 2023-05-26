@@ -37,7 +37,10 @@ sudo apt update
 sudo apt install -y nodejs
 sudo apt install -y npm
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+git config --global user.name Olivier DAUMAS
+git config --global user.email olivier.daumas@acri-st.fr
 ~
+
 ~
 ~
 ~
