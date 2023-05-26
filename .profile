@@ -69,4 +69,6 @@ alias squash-all='git reset $(git commit-tree HEAD^{tree} -m "Clean Start")'
 alias aliases='alias;cat .aliases'
 alias python='python3' 
 
+#mount home
+
 export CI_REGISTRY=gitlabreg.acri-cwa.fr:443

@@ -103,4 +103,6 @@ RPROMPT='$(kube_ps1)'$RPROMPT
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 . ~/terminal/.profile
