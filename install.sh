@@ -39,8 +39,12 @@ sudo apt install -y npm
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
 git config --global user.name Olivier DAUMAS
 git config --global user.email olivier.daumas@acri-st.fr
+echo "Installing Minio"
+sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+  --create-dirs \
+  -o /usr/local/bin/mc
+sudo chmod +x /usr/local/bin/mc
 ~
-
 ~
 ~
 ~
