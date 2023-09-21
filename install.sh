@@ -1,7 +1,8 @@
 !/bin/bash
 if [ -z "$1" ]; then
   sudo apt install zsh
-  chsh -s $(which zsh)
+  sudo chsh -s $(which zsh)
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "Cloning plugins code"
   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
   echo "Replace the zsh rc file"
