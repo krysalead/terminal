@@ -52,27 +52,3 @@ if [ "$1" == "acri" ]; then
     -o /usr/local/bin/mc
   sudo chmod +x /usr/local/bin/mc
 fi
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-
