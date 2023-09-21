@@ -4,7 +4,6 @@ if [ -z "$1" ]; then
   chsh -s $(which zsh)
   echo "Cloning plugins code"
   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-  git clone https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv ~/.oh-my-zsh/plugins/autoswitch_virtualenv
   echo "Replace the zsh rc file"
   echo ". ~/terminal/.zshrc" > .zshrc
 fi
@@ -42,6 +41,7 @@ if [ "$1" == "node" ]; then
   sudo apt install -y nodejs
   sudo apt install -y npm
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+  git clone https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv ~/.oh-my-zsh/plugins/autoswitch_virtualenv
 fi
 if [ "$1" == "acri" ]; then
   git config --global user.name Olivier DAUMAS
