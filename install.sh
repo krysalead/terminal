@@ -1,5 +1,5 @@
 !/bin/bash
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
   sudo apt install zsh
   chsh -s $(which zsh)
   echo "Cloning plugins code"
