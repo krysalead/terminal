@@ -41,7 +41,7 @@ function cd () {
 }
 
 # cd from anywhere into your project folder, easy switch from one project to another
-CDPATH=.:~/Projects:~/git_clones
+CDPATH=.:~/projects:~/git_clones
 
 #System alias
 alias ll='ls -la'
@@ -49,7 +49,7 @@ alias q='exit'
 alias c='clear'
 alias home='cd ~'
 alias root='cd /'
-alias work='cd ~/Projects'
+alias work='cd ~/projects'
 alias o=open
 alias ..='cd ..'
 alias branches='~/terminal/bin/branches.sh'
