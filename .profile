@@ -58,16 +58,7 @@ alias development='git checkout development'
 alias production='git checkout production'
 alias previous='git checkout @{-1}'
 alias graph='git log --graph --decorate'
-alias ns='kubectl ns'
-alias ctx='kubectl ctx'
-alias k='kubectl '
-alias ingresslogs='kubectl logs -n ingress-nginx -l app=ingress-nginx'
 alias files='find * -type f | fzf > selected'
-alias mount='f() { mkdir -p ~/$1;/usr/bin/vmhgfs-fuse .host:/$1 ~/mnt/$1 -o subtype=vmhgfs-fuse;cd ~/mnt/$1 };f'
 alias squash-all='git reset $(git commit-tree HEAD^{tree} -m "Clean Start")'
 alias aliases='alias;cat .aliases'
 alias python='python3' 
-
-#mount home
-
-export CI_REGISTRY=gitlabreg.acri-cwa.fr:443

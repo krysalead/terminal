@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
   echo "Replace the zsh rc file"
   echo ". ~/terminal/.zshrc" > .zshrc
 fi
-if [ "$1" == "kube" ]; then
+if [ "$1" eq "kube" ]; then
   echo "Installing kubectl"
   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
   sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -26,8 +26,12 @@ if [ "$1" == "kube" ]; then
   echo "Installing kubernetes plugins"
   kubectl krew install ctx
   kubectl krew install ns
+  echo "alias ns='kubectl ns'" >> ~/terminal/.profile
+  echo "alias ctx='kubectl ctx'" >> ~/terminal/.profile
+  echo "alias k='kubectl '" >> ~/terminal/.profile
+  echo "alias ingresslogs='kubectl logs -n ingress-nginx -l app=ingress-nginx'" >> ~/terminal/.profile
 fi
-if [ "$1" == "python" ]; then
+if [ "$1" eq "python" ]; then
   sudo add-apt-repository ppa:deadsnakes/ppa
   sudo apt-get update -y
   sudo apt-get install -y python3.10
@@ -36,7 +40,7 @@ if [ "$1" == "python" ]; then
   python -m pip install --user virtualenv
   rm get-pip.py
 fi
-if [ "$1" == "node" ]; then
+if [ "$1" eq "node" ]; then
   echo "installing nodejs"
   sudo apt update
   sudo apt install -y nodejs
@@ -44,7 +48,7 @@ if [ "$1" == "node" ]; then
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
   git clone https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv ~/.oh-my-zsh/plugins/autoswitch_virtualenv
 fi
-if [ "$1" == "acri" ]; then
+if [ "$1" eq "acri" ]; then
   git config --global user.name Olivier DAUMAS
   git config --global user.email olivier.daumas@acri-st.fr
   echo "Installing Minio"
@@ -52,4 +56,6 @@ if [ "$1" == "acri" ]; then
     --create-dirs \
     -o /usr/local/bin/mc
   sudo chmod +x /usr/local/bin/mc
+  echo "alias mount='f() { mkdir -p ~/\$1;/usr/bin/vmhgfs-fuse .host:/\$1 ~/mnt/\$1 -o subtype=vmhgfs-fuse;cd ~/mnt/\$1 };f'" >> ~/terminal/.profile
+  echo "export CI_REGISTRY=gitlabreg.acri-cwa.fr:443" >> ~/terminal/.profile
 fi
