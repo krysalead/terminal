@@ -5,6 +5,7 @@ if [ -z "$1" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
   echo "Cloning plugins code"
   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+  git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "~/.oh-my-zsh/custom/plugins/autoswitch_virtualenv"
   echo "Replace the zsh rc file"
   echo ". ~/terminal/.zshrc" > .zshrc
 fi
