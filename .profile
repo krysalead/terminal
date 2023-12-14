@@ -41,7 +41,7 @@ function cd () {
 }
 
 # cd from anywhere into your project folder, easy switch from one project to another
-CDPATH=.:~/projects:~/git_clones
+CDPATH=.:~/projects:~/git_clones:
 
 #System alias
 alias ll='ls -la'
@@ -62,3 +62,5 @@ alias files='find * -type f | fzf > selected'
 alias squash-all='git reset $(git commit-tree HEAD^{tree} -m "Clean Start")'
 alias aliases='alias;cat .aliases'
 alias python='python3' 
+
+eval "$(thefuck --alias)"
