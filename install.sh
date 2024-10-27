@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ -z "$1" ]; then
-  # echo ". ~/terminal/.zshrc" > ~/.zshrc
+  echo ". ~/terminal/.zshrc" > ~/.zshrc
   echo ". ~/terminal/.profile" > ~/.profile
 fi
 if [ "$1" == "zsh" ]; then
