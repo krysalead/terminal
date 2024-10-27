@@ -56,11 +56,10 @@ alias branches='~/terminal/bin/branches.sh'
 alias master='git checkout master'
 alias development='git checkout development'
 alias production='git checkout production'
+alias main='git checkout main'
 alias previous='git checkout @{-1}'
 alias graph='git log --graph --decorate'
 alias files='find * -type f | fzf > selected'
 alias squash-all='git reset $(git commit-tree HEAD^{tree} -m "Clean Start")'
 alias aliases='alias;cat .aliases'
 alias python='python3' 
-
-eval "$(thefuck --alias)"
