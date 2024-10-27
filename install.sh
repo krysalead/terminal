@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-if [ "$1" == "devcontainer" ]; then
+if [ -z "$1" ]; then
   # echo ". ~/terminal/.zshrc" > ~/.zshrc
   echo ". ~/terminal/.profile" > ~/.profile
 fi
-if [ -z "$1" ]; then
+if [ "$1" == "zsh" ]; then
   sudo apt install zsh
   sudo chsh -s $(which zsh)
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --unattended
