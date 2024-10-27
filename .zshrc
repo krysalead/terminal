@@ -73,7 +73,7 @@ export KUBE_PS1_SUFFIX="}"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-prompt dotenv docker-compose kubectl zsh-nvm autoswitch_virtualenv kube-ps1 virtualenv)
+plugins=(git-prompt dotenv docker-compose kubectl zsh-nvm thefuck autoswitch_virtualenv kube-ps1 virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 # source $ZSH/plugins/kube-ps1/kube-ps1.sh
