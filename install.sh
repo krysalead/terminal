@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+if [ "$1" == "devcontainer" ]; then
+  # echo ". ~/terminal/.zshrc" > ~/.zshrc
+  echo ". ~/terminal/.profile" > ~/.profile
+fi
 if [ -z "$1" ]; then
   sudo apt install zsh
   sudo chsh -s $(which zsh)
